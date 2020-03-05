@@ -1,10 +1,11 @@
 <template>
-  <v-app>
+  <v-app class="ma-0 pa-0">
     <v-app-bar
       app
       color="primary"
       dark
     >
+    Bachelor of Science | Digital Media | Web & App Development
     </v-app-bar>
 
     <v-content>
@@ -22,9 +23,5 @@ export default {
   components: {
     ProgramView,
   },
-
-  data: () => ({
-    //
-  }),
 };
 </script>

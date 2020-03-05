@@ -1,0 +1,9 @@
+
+query CourseByCode($courseCode: String) {
+  courseByCourseCode(courseCode: $courseCode) {
+    name
+    courseCode
+    description
+    termsOffered
+  }
+}
