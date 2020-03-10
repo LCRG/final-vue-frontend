@@ -4,7 +4,9 @@
     :query="require('../graphql/CourseByCode.gql')"
     :variables="{ courseCode }"
   >
-    <template slot-scope="{ result: { loading, error, data } }">
+  <CompetencyViewModal ref="dlg">
+  </CompetencyViewModal>
+    <template v-slot="{ result: { loading, error, data } }">
       <!-- Loading -->
       <div v-if="loading" class="loading apollo">Loading...</div>
 
@@ -24,7 +26,8 @@
                 show ? 'mdi-chevron-up' : 'mdi-chevron-down'
               }}</v-icon>
             </v-btn>
-            <v-spacer><v-btn icon>
+            <v-spacer>
+              <v-btn icon @click="openDlg">
                 <v-icon>mdi-playlist-check</v-icon>
               </v-btn></v-spacer>
             <v-spacer></v-spacer>
@@ -51,11 +54,19 @@
 </template>
 
 <script>
+import CompetencyViewModal from './CompetencyViewModal';
+
 export default {
   name: 'CourseCard',
-  data: () => ({
-    show: false
-  }),
+  components: {
+    CompetencyViewModal
+  },
+  data () {
+    return {
+    show: false,
+    dialog: false,
+    }
+  },
   props: {
     courseCode: String
   },
@@ -64,6 +75,12 @@ export default {
     reversedMessage: function () {
       // `this` points to the vm instance
       return 'Something'
+    }
+  },
+  methods: {
+    openDlg: function(e) {
+      console.log("Got Clicked!" + e)
+      this.$refs.dlg.open()
     }
   }
 }

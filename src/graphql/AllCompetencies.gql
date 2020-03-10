@@ -1,0 +1,6 @@
+
+query AllCompetencies {
+  Competencies {
+    name
+  }
+}
