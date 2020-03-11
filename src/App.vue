@@ -9,19 +9,22 @@
     </v-app-bar>
 
     <v-content>
-      <ProgramView/>
+      <!-- <ProgramView/> -->
+      <CompetencySelector/>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import ProgramView from './components/ProgramView';
+//import ProgramView from './components/ProgramView'
+import CompetencySelector from './components/CompetencySelector'
 
 export default {
   name: 'App',
 
   components: {
-    ProgramView,
+    // ProgramView,
+    CompetencySelector
   },
 };
 </script>
